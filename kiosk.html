@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PUP KIOSK</title>
+        <link rel="stylesheet" href="kiosk.css"/>
+        
+        <script>
+        // function that calls the picture and short description of the place on the event onmouseover
+        function showPlace(placeId) {
+            // hides all the elements of class "place" in the display using for loop
+            var places = document.getElementsByClassName('place');
+                for (var i = 0; i < places.length; i++) {
+                    places[i].style.display = 'none';
+                }
+            
+            // retrieves the elements of a certain place by calling the placeId and displays it
+            var targetPlace = document.getElementById(placeId);
+            targetPlace.style.display = 'block';
+
+            // removes the CSS class "active" from the class "mouseout" so it will not be displayed when the onmouseover event takes place
+            var mouseoutElement = document.querySelector('.mouseout');
+            mouseoutElement.classList.remove('active');
+        }
+
+
+        // function that replaces the content of the right class with the mouseout class on the event onmouseout
+        function hidePlaceInfo(placeId) {
+            // hides the class "place" in display 
+            var targetPlace = document.getElementById(placeId);
+            targetPlace.style.display = 'none';
+
+            // retrieves the CSS class "active" from the class "mouseout" so it will be displayed when the onmouseout event takes place
+            var mouseoutElement = document.querySelector('.mouseout');
+            mouseoutElement.classList.add('active');
+        }
+
+
+        </script>
+    </head>
+
+    <body>
+        <header class="header">
+            <a href="#" class="logo">Polytechnic University of the Philippines</a>
+        </header>
+
+        <h1>PUP kiosk</h1>
+        <p>Hover over the map to see the DESCRIPTION and IMAGE of the location.</p>
+
+        <div class="content">
+            <div class="left">
+                <img id="map" src="img_kiosk/pupmap.gif" alt="PUP Map" usemap="#PUPMap" width="566" height="425">
+                <map name="PUPMap">
+                    <area shape="circle" coords="278, 336, 41" alt="PUP Chapel" onmouseover="showPlace('chapel')" onmouseout="hidePlaceInfo('chapel')">
+                    <area shape="circle" coords="207, 295, 49" alt="PUP Main Building Dome" onmouseover="showPlace('dome')" onmouseout="hidePlaceInfo('dome')">
+                    <area shape="circle" coords="319, 188, 28" alt="PUP Obelisk (and the Mabini Monument)" onmouseover="showPlace('mabini')" onmouseout="hidePlaceInfo('mabini')">
+                
+                    <area shape="rect" coords="301, 54, 361, 85" alt="PUP Pool" onmouseover="showPlace('pool')" onmouseout="hidePlaceInfo('pool')">
+                    <area shape="rect" coords="352, 46, 460, 93" alt="PUP Gymnasium" onmouseover="showPlace('gym')" onmouseout="hidePlaceInfo('gym')">
+                    <area shape="rect" coords="402, 117, 445, 147" alt="PUP Tennis Open Court" onmouseover="showPlace('tennis')" onmouseout="hidePlaceInfo('tennis')">
+                    <area shape="rect" coords="262, 39, 283, 119" alt="PUP P.E. Building" onmouseover="showPlace('pe')" onmouseout="hidePlaceInfo('pe')">
+                    <area shape="rect" coords="345, 118, 377, 145" alt="PUP Open Court" onmouseover="showPlace('court')" onmouseout="hidePlaceInfo('court')">
+
+                    <area shape="poly" coords="365, 309, 420, 244, 474, 238, 488, 297, 442, 360" alt="PUP Oval" onmouseover="showPlace('oval')" onmouseout="hidePlaceInfo('oval')">
+                    <area shape="poly" coords="195, 216, 215, 200, 231, 167, 231, 130, 246, 140, 248, 159, 262, 189, 262, 209 " alt="PUP Lagoon" onmouseover="showPlace('lagoon')" onmouseout="hidePlaceInfo('lagoon')">
+                        
+                </map>
+            </div>
+            
+            <div class="right">
+                
+                <div class="mouseout">
+                    <h3>Start exploring the PUP Main</h3>
+                    <p>Hover over the map to see the DESCRIPTION and IMAGE of the location.</p>
+                </div>
+
+                <div id="chapel" class="place">
+                    <img src="img_kiosk/chapel.jpg">
+                    <h3>PUP Chapel</h3>
+                    <p>The ecumenical chapel (known as the Interfaith Chapel) is a nondenominational Christian church located inside the PUP - A. Mabini Campus.</p>
+                </div>
+
+                <div id="dome" class="place">
+                    <img src="img_kiosk/dome.jfif">
+                    <h3>PUP Main Building Dome</h3>
+                    <p>A prominent feature of PUP's main building, the dome is a distinct architectural element that stands out and adds grandeur to the campus.</p>
+                </div>
+
+                <div id="mabini" class="place">
+                    <img src="img_kiosk/obelisk.jfif">
+                    <h3>PUP Obelisk (and the Mabini Monument)</h3>
+                    <p>The PUP Obelisk is a tall, monument-like structure that serves as a symbol of pride and commemoration. It is accompanied by the Mabini Monument.</p>
+                </div>
+
+                <div id="pool" class="place">
+                    <img src="img_kiosk/pool.jpg">
+                    <h3>PUP Pool</h3>
+                    <p>The pool is a recreational facility located in PUP - A. Mabini Campus.</p>
+                </div>
+
+                <div id="gym" class="place">
+                    <img src="img_kiosk/gym.jpg">
+                    <h3>PUP Gymnasium</h3>
+                    <p>The Gymnasium serves as the training ground for the student athletes that participate in the intercollegiate sports program.</p>
+                </div>
+
+                <div id="tennis" class="place">
+                    <img src="img_kiosk/tennis.jpg">
+                    <h3>PUP Tennis Open Court</h3>
+                    <p>A spacious open court dedicated to tennis, providing students and faculty with a facility for recreational and competitive tennis matches.</p>
+                </div>
+
+                <div id="pe" class="place">
+                    <img src="img_kiosk/pe.jpg">
+                    <h3>PUP P.E. Building</h3>
+                    <p>PUP Physical Education Building is a educational building dedicated for sports and physical activities.</p>
+                </div>
+
+                <div id="court" class="place">
+                    <img src="img_kiosk/court.jpg">
+                    <h3>PUP Open Court</h3>
+                    <p>An open and versatile space on the PUP campus that can be used for various activities, such as outdoor gatherings, events, or sports practices.</p>
+                </div>
+
+                <div id="oval" class="place">
+                    <img src="img_kiosk/oval.jpg">
+                    <h3>PUP Oval</h3>
+                    <p>The PUP Oval is a prominent open space within the PUP - A. Mabini Campus where various activities and events take place.</p>
+                </div>
+
+                <div id="lagoon" class="place">
+                    <img src="img_kiosk/lagoon.jpg">
+                    <h3>PUP Lagoon</h3>
+                    <p>The PUP Lagoon is a scenic water feature or artificial lake within the campus, providing a serene environment for relaxation and enjoyment.</p>
+                </div>
+            </div>
+
+
+
+        </div>
+    
+    </body>
+</html>
